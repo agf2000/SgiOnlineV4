@@ -673,6 +673,10 @@ string_decoder@~1.1.1:
   dependencies:
     safe-buffer "~5.1.0"
 
+sweetalert2@^7.22.2:
+  version "7.22.2"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-7.22.2.tgz#e21dc6e23c1a9a267c85ae539f3354e8b33d00e8"
+
 tedious@^2.0.0:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/tedious/-/tedious-2.6.1.tgz#e9f610ba5eacee6da4fd77a09f4a463d6db7b772"

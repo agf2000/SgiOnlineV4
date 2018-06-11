@@ -1,7 +1,7 @@
 const createError = require('http-errors');
 const express = require('express');
 const hbs = require('express-handlebars');
-const helpers = require("./process/js/helpers.js")
+const helpers = require("./core/helpers.js")
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -12,7 +12,13 @@ const session = require('express-session');
 require('./passport')(passport);
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const authRouter = require("./routes/auth");
+const products = require('./routes/products');
+const clients = require('./routes/clients');
+const sales = require('./routes/sales');
+const users = require('./routes/users');
+const templates = require('./routes/templates');
+const api = require('./routes/api');
 
 const app = express();
 
@@ -47,7 +53,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/login', authRouter);
+app.use('/produtos', products);
+app.use('/clientes', clients);
+app.use('/davs', sales);
+app.use('/users', users);
+app.use('/templates', templates);
+app.use('/api', api);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
